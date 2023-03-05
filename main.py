@@ -1,5 +1,5 @@
 def solution(n):
-  if "str_primario" not in dir(solution):
+  if "str_primo" not in dir(solution):
     inteiro_maximo = 10_000
     set_numerico = [True] * inteiro_maximo
 
@@ -7,16 +7,16 @@ def solution(n):
 
     sieve_final = inteiro_maximo**0.5
 
-    for numero, eh_primario in enumerate(set_numerico):
+    for numero, primo in enumerate(set_numerico):
       if numero <= sieve_final:
-        if eh_primario:
+        if primo:
           for multiplo in range(numero**2, inteiro_maximo, numero):
             set_numerico[multiplo] = False
       else:
         break
 
-    str_primario = "".join([str(x) for x, y in enumerate(set_numerico) if y])
-    solution.prime_str = str_primario
+    str_primo = "".join([str(x) for x, y in enumerate(set_numerico) if y])
+    solution.prime_str = str_primo
 
   return solution.prime_str[n:n + 5]
 
